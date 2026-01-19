@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the application...'
+                // sh 'docker build -t myuser/myimage:latest .'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // sh 'docker run --rm myuser/myimage:latest /app/run_tests.sh'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                // sh 'docker push myuser/myimage:latest'
+            }
+        }
+    }
+}

@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fa;
+}
+
+.header {
+  background: #1f7a4a;
+  color: white;
+  padding: 20px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.product img {
+  width: 80px;
+}
+
+input {
+  width: 60px;
+  padding: 5px;
+  margin-bottom: 6px;
+}
+
+button {
+  background: #1f7a4a;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.badge {
+  background: #dff5ea;
+  color: #1f7a4a;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* =====================
+   BASKET STYLING
+===================== */
+
+#basket div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  animation: pop 0.15s ease-in-out;
+}
+
+#basket div > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* + / - buttons */
+#basket button[data-inc],
+#basket button[data-dec] {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #1f7a4a;
+  background: white;
+  color: #1f7a4a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#basket button[data-inc]:hover,
+#basket button[data-dec]:hover {
+  background: #1f7a4a;
+  color: white;
+}
+
+/* Disabled minus */
+#basket button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Quantity text */
+#basket span {
+  min-width: 22px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Remove button */
+#basket button[data-remove] {
+  background: #e83b3b;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+#basket button[data-remove]:hover {
+  opacity: 0.85;
+}
+
+/* Checkout */
+#checkout {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Receipt modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  max-width: 400px;
+  margin: 100px auto;
+  border-radius: 10px;
+}
+
+/* Animation */
+@keyframes pop {
+  from {
+    transform: scale(0.97);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Supermarket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <h1>Supermarket</h1>
+  <p>Select quantity and add to basket</p>
+</header>
+
+<main class="container">
+
+  <!-- PRODUCTS -->
+  <section class="card">
+    <h2>Fruits</h2>
+
+    <div class="products">
+      <div class="product">
+        <img src="apple.png">
+        <h3>Apple</h3>
+        <p>$0.50</p>
+        <input type="number" id="qty-apple" min="0" value="0">
+        <button data-item="apple">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="pear.png">
+        <h3>Pear</h3>
+        <p>$0.60</p>
+        <input type="number" id="qty-pear" min="0" value="0">
+        <button data-item="pear">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="orange.png">
+        <h3>Orange</h3>
+        <p>$0.75</p>
+        <input type="number" id="qty-orange" min="0" value="0">
+        <button data-item="orange">Add</button>
+      </div>
+
+      <div class="product">
+        <img src="grape.png">
+        <h3>Grape</h3>
+        <p>$0.40</p>
+        <input type="number" id="qty-grape" min="0" value="0">
+        <button data-item="grape">Add</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASKET -->
+  <section class="card">
+    <h2>Basket <span id="basketCount" class="badge">0 items</span></h2>
+    <div id="basket"></div>
+
+    <h3>Total: <span id="total">$0.00</span></h3>
+    <button id="checkout">Checkout</button>
+    <p id="message"></p>
+  </section>
+
+</main>
+
+<!-- RECEIPT / CHECKOUT MODAL -->
+<div id="receipt" class="modal">
+  <div class="modal-content">
+    <h2 id="receiptTitle">Order Summary</h2>
+
+    <div id="receiptItems"></div>
+
+    <h3>Total: <span id="receiptTotal"></span></h3>
+
+    <p id="payMessage" style="font-weight:bold; color:#1f7a4a;"></p>
+
+    <div id="checkoutActions" style="display:flex; gap:10px; margin-top:12px;">
+      <button id="backToCartBtn" style="background:#6b7280;">Back to Cart</button>
+      <button id="payBtn">Pay</button>
+    </div>
+
+    <div id="okArea" style="display:none; margin-top:12px;">
+      <button id="okBtn">OK</button>
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

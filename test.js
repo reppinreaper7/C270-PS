@@ -1,13 +1,26 @@
-console.log("Running CI tests...");
+const http = require("http");
 
-// Example test
-function add(a, b) {
-  return a + b;
+function testEndpoint(path, expectedStatus) {
+  return new Promise((resolve, reject) => {
+    http.get(`http://localhost:3000${path}`, (res) => {
+      if (res.statusCode === expectedStatus) {
+        console.log(`✅ ${path} passed`);
+        resolve();
+      } else {
+        reject(`❌ ${path} failed`);
+      }
+    }).on("error", (err) => reject(err));
+  });
 }
 
-if (add(2, 2) !== 4) {
-  console.error("❌ Test failed");
-  process.exit(1);   // FAIL CI
-}
-
-console.log("✅ All tests passed");
+(async () => {
+  try {
+    await testEndpoint("/", 200);
+    await testEndpoint("/health", 200);
+    console.log("🎉 Pi Testing successful");
+    process.exit(0);
+  } catch (err) {
+    console.error("🚨 Pi Testing failed:", err);
+    process.exit(1);
+  }
+})();
